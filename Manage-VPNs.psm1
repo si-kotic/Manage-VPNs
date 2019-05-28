@@ -1,11 +1,16 @@
 Function Connect-VPN {
     Param (
-        [Parameter(ValueFromPipeline=$true)]$VPN,
+        [Parameter(ValueFromPipeline=$true,Mandatory)]$VPN,
         [Parameter(Mandatory)]$Domain,
         [Parameter(Mandatory)]$UserName,
         [Parameter(Mandatory)][SecureString]$Password
     )
-    $vpnName = $VPN.Name
+    IF ($VPN.GetType().Name -eq "CimInstance") {
+        $vpnName = $VPN.Name
+    }
+    ELSEIF ($VPN.GetType().Name -eq "String") {
+        $vpnName = $VPN
+    }
     $UnsecurePassword = (New-Object PSCredential "user",$Password).GetNetworkCredential().Password
     rasdial.exe $vpnName $username $UnsecurePassword /DOMAIN:$domain
 }
