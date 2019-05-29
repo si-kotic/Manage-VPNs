@@ -19,7 +19,12 @@ Function Disconnect-VPN {
     Param (
         [Parameter(ValueFromPipeline=$true)]$VPN
     )
-    $vpnName = $VPN.Name
+    IF ($VPN.GetType().Name -eq "CimInstance") {
+        $vpnName = $VPN.Name
+    }
+    ELSEIF ($VPN.GetType().Name -eq "String") {
+        $vpnName = $VPN
+    }
     rasdial.exe $vpnName /DISCONNECT
 }
 
