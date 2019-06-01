@@ -15,8 +15,9 @@ The Connect-VPN cmdlet allows you to connect to a VPN.
 #### Parameters
 ##### VPN
 Specifies a VPN to which you wish to connect.  Can be provided as a `string` or as a `VPN Object` such as those returned by `Get-VPNConnection`.
+
 Argument | Value
--------- | -----
+--- | ---
 Type | String or VPN Object
 Position | Named
 Default value | None
@@ -25,6 +26,7 @@ Accept wildcard characters | False
 Mandatory | True
 ##### Domain
 Specify the domain to which the authenticating user belongs.
+
 Argument | Value
 --- | ---
 Type | String
@@ -35,6 +37,7 @@ Accept wildcard characters | False
 Mandatory | True
 ##### UserName
 Specify a username with permission to use this VPN.
+
 Argument | Value
 --- | ---
 Type | String
@@ -47,6 +50,7 @@ Mandatory | True
 The value of this parameter should be the password for the authenticating user.
 
 **This parameter should not be explicitly specified when calling the cmdlet and will not autocomplete.  When you execute the command without this paramter you will be prompted to provide it and the value will be masked for security.**
+
 Argument | Value
 --- | ---
 Type | SecureString
