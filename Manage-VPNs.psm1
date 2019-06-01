@@ -3,7 +3,7 @@ Function Connect-VPN {
         [Parameter(ValueFromPipeline=$true,Mandatory)]$VPN,
         [Parameter(Mandatory)]$Domain,
         [Parameter(Mandatory)]$UserName,
-        [Parameter(Mandatory)][SecureString]$Password
+        [Parameter(Mandatory,DontShow)][SecureString]$Password
     )
     IF ($VPN.GetType().Name -eq "CimInstance") {
         $vpnName = $VPN.Name
