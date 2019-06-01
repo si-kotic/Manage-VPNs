@@ -17,7 +17,7 @@ Function Connect-VPN {
 
 Function Disconnect-VPN {
     Param (
-        [Parameter(ValueFromPipeline=$true)]$VPN
+        [Parameter(ValueFromPipeline=$true)]$VPN = ""
     )
     IF ($VPN.GetType().Name -eq "CimInstance") {
         $vpnName = $VPN.Name
