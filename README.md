@@ -61,17 +61,17 @@ Accept wildcard characters | False
 Mandatory | True
 #### Syntax
 ```powershell
-Connect-VPN -VPN "VPN Connection Name"
+Connect-VPN -VPN "My VPN Connection"
 ```
 ```powershell
-Connect-VPN -VPN "VPN Connection Name" -Domain "contoso.com" -UserName "vpnuser"
+Connect-VPN -VPN "My VPN Connection" -Domain "contoso.com" -UserName "vpnuser"
 ```
 ```powershell
-Get-VPNConnection "VPN Connection Name" | Connect-VPN
+Get-VPNConnection "My VPN Connection" | Connect-VPN
 ```
 #### Example
 ```
-ADMIN C:\Users\simon.brown>Connect-VPN "VPN Connection Name"
+C:\>Connect-VPN "My VPN Connection"
 
 cmdlet Connect-VPN at command pipeline position 1
 Supply values for the following parameters:
@@ -80,5 +80,50 @@ UserName: vpnuser
 Password: ******
 Verifying username and password...
 Registering your computer on the network...
-Successfully connected to VPN Connection Name.
+Successfully connected to My VPN Connection.
+```
+
+### Disconnect-VPN
+The Disconnect-VPN cmdlet allows you to disconnect one or all currently active VPNs.
+#### Parameters
+##### VPN
+Specifies a VPN which you wish to terminate.  Can be provided as a `string` or as a `VPN Object` such as those returned by `Get-VPNConnection`.
+
+Argument | Value
+--- | ---
+Type | String or VPN Object
+Position | Named
+Default value | None
+Accept pipeline input | True
+Accept wildcard characters | False
+Mandatory | False
+#### Syntax
+```powershell
+Disconnect-VPN
+```
+```powershell
+Disconnect-VPN -VPN "My VPN Connection"
+```
+```powershell
+Get-VPNConnection "My VPN Connection" | Disconnect-VPN
+```
+#### Example
+```
+C:\>Disconnect-VPN
+Command completed successfully.
+```
+### Get-ActiveVPNConnections
+The Get-ActiveVPNConnections cmdlet returns a list of all currently active VPNs.
+#### Parameters
+There are no parameters for this cmdlet.
+#### Syntax
+```powershell
+Get-ActiveVPNConnections
+```
+#### Example
+```
+C:\>Get-ActiveVPNConnections
+Active VPN Connections:
+My VPN Connection
+My Second VPN Connection
 ```
