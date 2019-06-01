@@ -15,7 +15,7 @@ The Connect-VPN cmdlet allows you to connect to a VPN.
 #### Parameters
 ##### VPN
 Specifies a VPN to which you wish to connect.  Can be provided as a `string` or as a `VPN Object` such as those returned by `Get-VPNConnection`.
-| | |
+. | .
 --- | ---
 Type | String or VPN Object
 Position | Named
