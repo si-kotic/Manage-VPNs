@@ -1,4 +1,8 @@
 Function Connect-VPN {
+    <#
+    .LINK
+    https://github.com/si-kotic/Manage-VPNs
+    #>
     Param (
         [Parameter(ValueFromPipeline=$true,Mandatory)]$VPN,
         [Parameter(Mandatory)]$Domain,
@@ -16,6 +20,10 @@ Function Connect-VPN {
 }
 
 Function Disconnect-VPN {
+    <#
+    .LINK
+    https://github.com/si-kotic/Manage-VPNs
+    #>
     Param (
         [Parameter(ValueFromPipeline=$true)]$VPN = ""
     )
@@ -29,6 +37,10 @@ Function Disconnect-VPN {
 }
 
 Function Get-ActiveVPNConnections {
+    <#
+    .LINK
+    https://github.com/si-kotic/Manage-VPNs
+    #>
     $rasdial = rasdial.exe
     IF ($rasdial[0] -eq "No Connections") {
         $rasdial[0]
